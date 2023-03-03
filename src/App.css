@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Pacifico&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: hsla(305, 69%, 35%, 0.408); */
+  background: linear-gradient(45deg, #eaf2d6 0%, rgba(225, 5, 34, 0) 70%) 
+              repeat scroll 0% 0%, linear-gradient(135deg, #ea9ab3 10%, rgba(49, 5, 209, 0) 80%) 
+              repeat scroll 0% 0%, linear-gradient(225deg, #efcee3 10%, rgba(10, 219, 216, 0) 80%) 
+              repeat scroll 0% 0%, rgba(0, 0, 0, 0) linear-gradient(315deg, #ea9ab1 100%, rgba(9, 245, 5, 0) 70%) repeat scroll 0% 0%;
+  font-family: 'Libre Baskerville', serif;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  opacity: 1;
+  justify-content: space-around;
+  animation: page-opacity-load 4s normal;
+  transition: cubic-bezier(1, -1.11, 1, 0.85);
+}
+
+@keyframes page-opacity-load {
+  0% {opacity: 0;}
+  50%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.title {
+  text-align: center;
+  font-size: 78px;
+  font-family: 'Pacifico', cursive;
+  color: #ea9ab100;
+  -webkit-text-stroke: 1.5px black;
+  letter-spacing: 8px;
+}
+
+.title-4, .title-lyfe {
+  margin-top: -60px;
+  animation: title-load 2s normal;
+  transition: ease-out;
+}
+
+@keyframes title-load {
+  from {margin-top: -136px;}
+  to {margin-top: -60px;}
+}
+
+.title-4 {
+  color: #000000;
+  animation: title-4-animation 3s normal;
+  transition: linear;
+}
+
+@keyframes title-4-animation {
+  0%{color: #00000000;}
+  75%{color: #00000000;}
+  100%{color: #000000;}
+}
+
+.description-container {
+  height: auto;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.cat-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 60%;
+  background-color: #fff;
+  box-shadow: 10px 20px 30px #1265a133;
+  border-radius: 10px;
+}
+
+.cat-card {
+  padding: 10px;
+}
+
+.cat-card img {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.basket-container {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 20%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 25px 40px #1687d933;
+  /* position: absolute;
+  right: 60px;
+  top:-100px; */
+}
+
+.basket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  width: 90%;
+}
+
+.basket-removeAll {
+  font-size: 15px;
+}
+
+.basket-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.basket-buyBtn {
+  display: flex;
+  align-self: flex-end;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: aqua;
+  margin-bottom: 5px;
+}

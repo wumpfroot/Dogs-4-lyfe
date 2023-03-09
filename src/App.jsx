@@ -1,109 +1,89 @@
-import './App.css';
-import {  useEffect, useState } from 'react';
-import { faker } from '@faker-js/faker';
-
+import Header from "./components/Header/Header";
+import DogCards from "./components/DogCards/DogCards";
+import Basket from "./components/Basket/Basket";
+import BasketModal from "./components/Modal/BasketModal";
+import { faker } from "@faker-js/faker";
+import { useEffect, useState } from "react";
+import "./App.css";
 
 const App = () => {
-  const [cat, setCat] = useState([]);
-  const [basket, setBasket] = useState([]);
-  const fetchImageData = async () => {
-    
-    try {
+	const [dog, setDog] = useState([]);
+	const [basket, setBasket] = useState([]);
+	const [basketmodal, setBasketModal] = useState(false);
 
-      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
+	const fetchImageData = async () => {
+		try {
+			const response = await fetch(
+				`https://api.thedogapi.com/v1/images/search?limit=10&has_breeds=1&api_key=${
+					import.meta.env.VITE_API_KEY
+				}`
+			);
+			if (!response.ok) {
+				throw new Error(response.statusText);
+			}
+			const data = await response.json();
+			console.log(data);
+			return data;
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	console.log(basket);
 
-    
-      if(!response.ok){
-        throw new Error(response.statusText)
-      }
+	useEffect(() => {
+		const fetchData = async () => {
+			let dogList = await fetchImageData();
+			dogList.map((dog) => {
+				dog.name = faker.name.firstName();
+				dog.price = faker.commerce.price(500);
+			});
+			setDog(dogList);
+		};
+		fetchData();
+	}, []);
 
-      const data = await response.json();
-      console.log(data)
-      return data 
-      
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  
-  useEffect(() => {
-    const fetchData = async () =>{ 
-        let catList = await fetchImageData();
-          catList.map((cat)=>{ 
-              cat.name = faker.name.firstName();
-              cat.price = faker.commerce.price(500);
-      })        
-      setCat(catList);
-  }
-  fetchData();
-  }, []);
+	const addToBasket = (dog) => {
+		setBasket([...basket, dog]);
+		console.log(dog);
+	};
 
+	const removeFromBasket = (removeDog) => {
+		setBasket(basket.filter((dog) => dog !== removeDog));
+	};
 
-const addToBasket = (cat) => {
-  console.log('Cat in the basket')
-  setBasket([...basket, cat]);
-  console.log(cat)
-}
+	const removeAllFromBasket = () => {
+		setBasket([]);
+	};
 
-const removeFromBasket = (removeCat) => {
-  setBasket(basket.filter((cat) => cat !== removeCat))
-}
-  
+	const basketModalVisible = () => {
+		setBasketModal(true);
+	};
 
-  return (
-      <div className="App">
-      <div className="title-container">
-      <span className='title'>Cats</span>
-      <span className='title-4 title'>4</span>
-      <span className='title-lyfe title'>Lyfe</span>
-      </div>
-      <div className="description-container">
-        <h3 className="description-text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate repellat natus, quam maiores molestias, esse amet hic soluta fugiat harum autem corrupti itaque error corporis facilis dolor beatae commodi sunt!
-        </h3>
-      </div>
-      <div className="container">
-      <div className="cat-cards">
-      {cat.map((cat, index) => {
-        // map through API data stored in the state and display it to the user
-          return (
-          <div className='cat-card' key={index}>
-            <h3>Name: {cat.name}</h3>
-            <img src={cat.url} alt="catto"/> 
-            <p>£{cat.price}</p>
-            <button onClick={() => addToBasket(cat)}>Add to basket</button>             
-          </div>
-          )
-      })}
-      </div>
+	const basketModalInvisible = () => {
+		setBasketModal(false);
+	};
 
-      <div className="basket-container">
-        <div className="basket-header">
-        <h3 className='basket-heading'>Basket ({basket.length})</h3>
-        <h4 className='basket-removeAll'>Remove All</h4>
-        </div>
-        {basket.map((cat, index) => {
-          return (
-          <div className='basket-cat-card' key={index}>
-            <h3>{cat.name}</h3>
-            <p>£{cat.price}</p>
-            <button onClick={() => removeFromBasket(cat)}>❌</button>            
-          </div>
-          )
-      })}
-      <div className="basket-footer">
-      
-        <h4>Total: </h4>
-        <button className="basket-buyBtn">Buy da kitties</button>
-      </div>
-      </div>
-    </div>
-    </div>
-
-  );
-
-}
-
-
+	return (
+		<div className="App">
+			<Header basketModalVisible={basketModalVisible} />
+			<div className="container">
+				<DogCards dog={dog} addToBasket={addToBasket} />
+				<Basket
+					basket={basket}
+					removeFromBasket={removeFromBasket}
+					removeAllFromBasket={removeAllFromBasket}
+				/>
+				{basketmodal && (
+					<BasketModal
+						basket={basket}
+						removeFromBasket={removeFromBasket}
+						removeAllFromBasket={removeAllFromBasket}
+						basketModalInvisible={basketModalInvisible}
+					/>
+				)}
+			</div>
+		</div>
+	);
+};
 
 export default App;

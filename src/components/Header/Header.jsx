@@ -1,4 +1,5 @@
 import { BsBasket3Fill } from "react-icons/bs";
+import "./header.css";
 
 const Header = ({ basketModalVisible }) => {
 	return (
@@ -13,10 +14,7 @@ const Header = ({ basketModalVisible }) => {
 			</div>
 			<div className="description-container">
 				<h3 className="description-text">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate
-					repellat natus, quam maiores molestias, esse amet hic soluta fugiat
-					harum autem corrupti itaque error corporis facilis dolor beatae
-					commodi sunt!
+					We provide the man with his best friend 4 lyfe.
 				</h3>
 			</div>
 		</>

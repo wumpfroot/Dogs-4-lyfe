@@ -1,4 +1,5 @@
 import { FaDog } from "react-icons/fa";
+import "./basket.css";
 
 const Basket = ({ basket, removeFromBasket, removeAllFromBasket }) => {
 	let total = basket.reduce(

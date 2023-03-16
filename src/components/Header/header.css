@@ -1,0 +1,71 @@
+.basket-modal-btn {
+	display: none;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	margin: 0 0 0 auto;
+}
+
+.title-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 30px;
+}
+
+.title {
+	text-align: center;
+	font-size: 78px;
+	font-family: "Pacifico", cursive;
+	color: #ea9ab100;
+	-webkit-text-stroke: 1.5px black;
+	letter-spacing: 8px;
+}
+
+.title-4,
+.title-lyfe {
+	margin-top: -60px;
+	animation: title-load 2s normal;
+	transition: ease-out;
+}
+
+@keyframes title-load {
+	from {
+		margin-top: -136px;
+	}
+	to {
+		margin-top: -60px;
+	}
+}
+
+.title-4 {
+	color: #000000;
+	animation: title-4-animation 3s normal;
+	transition: linear;
+}
+
+@keyframes title-4-animation {
+	0% {
+		color: #00000000;
+	}
+	75% {
+		color: #00000000;
+	}
+	100% {
+		color: #000000;
+	}
+}
+
+.description-container {
+	height: auto;
+	width: 40%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+@media (max-width: 810px) {
+	.basket-modal-btn {
+		display: block;
+	}
+}

@@ -27,9 +27,9 @@ const BasketModal = ({
 								</button>
 								<button onClick={basketModalInvisible}>❌</button>
 							</div>
-							{basket.map((cat, index) => {
+							{basket.map((cat) => {
 								return (
-									<div className="basket-cat-card" key={index}>
+									<div className="basket-cat-card" key={cat.id}>
 										<h3>{cat.name}</h3>
 										<p>£{cat.price}</p>
 										<button onClick={() => removeFromBasket(cat)}>❌</button>

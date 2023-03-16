@@ -53,6 +53,28 @@
 	border-radius: 10px;
 }
 
+.mobile {
+	opacity: 1;
+	bottom: 81px;
+	/* position: absolute;
+	bottom: 61px;
+	width: 94%;
+	height: 200px;
+	padding: 5px;
+	background-color: #00000096;
+	transition: opacity 0.3s ease;
+	border-radius: 10px; */
+}
+
+.info-btn {
+	display: none;
+}
+
+.card-buttons {
+	display: flex;
+	gap: 5px;
+}
+
 .desc {
 	color: white;
 }
@@ -61,8 +83,8 @@
 	opacity: 1;
 }
 
-@media (pointer: coarse) {
-	.description:hover {
-		opacity: 1;
+@media (hover: none) {
+	.info-btn {
+		display: block;
 	}
 }

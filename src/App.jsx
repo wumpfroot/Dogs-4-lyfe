@@ -67,7 +67,7 @@ const App = () => {
 		<div className="App">
 			<Header basketModalVisible={basketModalVisible} />
 			<div className="container">
-				<DogCards dog={dog} addToBasket={addToBasket} />
+				<DogCards dogs={dog} addToBasket={addToBasket} />
 				<Basket
 					basket={basket}
 					removeFromBasket={removeFromBasket}

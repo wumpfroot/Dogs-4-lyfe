@@ -1,4 +1,8 @@
 import { createPortal } from "react-dom";
+import { toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import "../Basket/basket.css";
 import "./basketmodal.css";
 
 const BasketModal = ({
@@ -38,7 +42,14 @@ const BasketModal = ({
 							})}
 							<div className="basket-footer">
 								<h4>Total: £{total}</h4>
-								<button className="basket-buyBtn">Buy da doggos</button>
+								<button
+									className="basket-buyBtn"
+									onClick={() =>
+										toast("You have doggos now. WOW! (not really)")
+									}
+								>
+									Buy da doggos
+								</button>
 							</div>
 						</div>
 					</div>

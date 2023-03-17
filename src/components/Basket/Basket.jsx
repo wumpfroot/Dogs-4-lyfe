@@ -1,4 +1,6 @@
 import { FaDog } from "react-icons/fa";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./basket.css";
 
 const Basket = ({ basket, removeFromBasket, removeAllFromBasket }) => {
@@ -28,7 +30,12 @@ const Basket = ({ basket, removeFromBasket, removeAllFromBasket }) => {
 			})}
 			<div className="basket-footer">
 				<h4>Total: £{total}</h4>
-				<button className="basket-buyBtn">Buy da doggos</button>
+				<button
+					className="basket-buyBtn"
+					onClick={() => toast("You have doggos now. WOW! (not really)")}
+				>
+					Buy da doggos
+				</button>
 			</div>
 		</div>
 	);

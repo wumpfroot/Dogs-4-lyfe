@@ -3,6 +3,8 @@ import DogCards from "./components/DogCards/DogCards";
 import Basket from "./components/Basket/Basket";
 import BasketModal from "./components/Modal/BasketModal";
 import { faker } from "@faker-js/faker";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useState } from "react";
 import "./App.css";
 
@@ -44,15 +46,18 @@ const App = () => {
 
 	const addToBasket = (dog) => {
 		setBasket([...basket, dog]);
+		toast.success(`Added ${dog.name} to the basket!`);
 		console.log(dog);
 	};
 
 	const removeFromBasket = (removeDog) => {
 		setBasket(basket.filter((dog) => dog !== removeDog));
+		toast.info("Dog removed from basket");
 	};
 
 	const removeAllFromBasket = () => {
 		setBasket([]);
+		toast.info("Basket cleared");
 	};
 
 	const basketModalVisible = () => {
@@ -82,6 +87,7 @@ const App = () => {
 					/>
 				)}
 			</div>
+			<ToastContainer position="top-right" autoClose={4000} />
 		</div>
 	);
 };

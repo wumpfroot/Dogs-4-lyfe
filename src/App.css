@@ -1,5 +1,8 @@
+/* font import */
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+/* global styles (App.jsx)*/
 * {
 	margin: 0;
 	padding: 0;
@@ -7,7 +10,6 @@
 }
 
 body {
-	/* background-color: hsla(305, 69%, 35%, 0.408); */
 	background: linear-gradient(45deg, #eaf2d6 0%, rgba(225, 5, 34, 0) 70%) repeat
 			scroll 0% 0%,
 		linear-gradient(135deg, #ea9ab3 10%, rgba(49, 5, 209, 0) 80%) repeat scroll
@@ -26,6 +28,19 @@ h3,
 h4 {
 	margin: 0;
 	padding: 0;
+}
+
+button {
+	background-color: #ea9ab1;
+	border: 1px solid #b06a7e;
+	border-radius: 4px;
+	padding: 5px;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #d88aa0;
 }
 
 .container {

@@ -1,10 +1,14 @@
 import Header from "./components/Header/Header";
 import DogCards from "./components/DogCards/DogCards";
+//Component imports
 import Basket from "./components/Basket/Basket";
 import BasketModal from "./components/Modal/BasketModal";
+
+//libraries
 import { faker } from "@faker-js/faker";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import { useEffect, useState } from "react";
 import "./App.css";
 
@@ -13,6 +17,7 @@ const App = () => {
 	const [basket, setBasket] = useState([]);
 	const [basketmodal, setBasketModal] = useState(false);
 
+	//Fetching data from the dog API
 	const fetchImageData = async () => {
 		try {
 			const response = await fetch(

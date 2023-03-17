@@ -1,4 +1,6 @@
+//React Icon imports
 import { FaDog } from "react-icons/fa";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./basket.css";
@@ -21,7 +23,7 @@ const Basket = ({ basket, removeFromBasket, removeAllFromBasket }) => {
 			</div>
 			{basket.map((dog) => {
 				return (
-					<div className="basket-cat-card" key={dog.id}>
+					<div className="basket-dog-card" key={dog.id}>
 						<h3>{dog.name}</h3>
 						<p>£{dog.price}</p>
 						<button onClick={() => removeFromBasket(dog)}>❌</button>

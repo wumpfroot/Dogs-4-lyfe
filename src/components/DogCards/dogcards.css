@@ -1,4 +1,4 @@
-.cat-cards {
+.dog-cards {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -8,17 +8,27 @@
 	border-radius: 10px;
 }
 
-.cat-card {
+.dog-card {
 	position: relative;
 	padding: 10px;
 }
 
 .image-container {
+	position: relative;
 	width: 300px;
 	height: 200px;
+	cursor: pointer;
 }
 
-.cat-card img {
+.desc {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	color: black;
+	transition: 0.3s;
+}
+
+.dog-card img {
 	width: 100%;
 	height: 200px;
 	border-radius: 10px;
@@ -26,7 +36,7 @@
 }
 
 @media (max-width: 570px) {
-	.cat-card {
+	.dog-card {
 		width: 100%;
 		height: auto;
 	}
@@ -43,8 +53,8 @@
 
 .description {
 	position: absolute;
-	bottom: 61px;
-	width: 94%;
+	width: 95%;
+	top: 106px;
 	height: 200px;
 	padding: 5px;
 	opacity: 0;
@@ -73,10 +83,6 @@
 .card-buttons {
 	display: flex;
 	gap: 5px;
-}
-
-.desc {
-	color: white;
 }
 
 .description:hover {

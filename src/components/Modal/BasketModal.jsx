@@ -1,7 +1,9 @@
 import { createPortal } from "react-dom";
-import { toast } from "react-toastify";
 
+//libraries
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import "../Basket/basket.css";
 import "./basketmodal.css";
 
@@ -12,7 +14,7 @@ const BasketModal = ({
 	basketModalInvisible,
 }) => {
 	let total = basket.reduce(
-		(accumulator, cat) => accumulator + parseInt(cat.price),
+		(accumulator, dog) => accumulator + parseInt(dog.price),
 		0
 	);
 	return (
@@ -31,12 +33,12 @@ const BasketModal = ({
 								</button>
 								<button onClick={basketModalInvisible}>❌</button>
 							</div>
-							{basket.map((cat) => {
+							{basket.map((dog) => {
 								return (
-									<div className="basket-cat-card" key={cat.id}>
-										<h3>{cat.name}</h3>
-										<p>£{cat.price}</p>
-										<button onClick={() => removeFromBasket(cat)}>❌</button>
+									<div className="basket-dog-card" key={dog.id}>
+										<h3>{dog.name}</h3>
+										<p>£{dog.price}</p>
+										<button onClick={() => removeFromBasket(dog)}>❌</button>
 									</div>
 								);
 							})}

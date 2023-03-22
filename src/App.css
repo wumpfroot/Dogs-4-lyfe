@@ -1,6 +1,6 @@
 /* font import */
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Pacifico&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap");
 
 /* global styles (App.jsx)*/
 * {
@@ -19,7 +19,7 @@ body {
 		rgba(0, 0, 0, 0)
 			linear-gradient(315deg, #ea9ab1 100%, rgba(9, 245, 5, 0) 70%) repeat
 			scroll 0% 0%;
-	font-family: "Anton", sans-serif;
+	font-family: "Maven Pro", sans-serif;
 }
 
 h1,
@@ -47,7 +47,7 @@ button:hover {
 	display: flex;
 	opacity: 1;
 	justify-content: space-around;
-	animation: page-opacity-load 4s normal;
+	animation: page-opacity-load 3s normal;
 	transition: cubic-bezier(1, -1.11, 1, 0.85);
 }
 

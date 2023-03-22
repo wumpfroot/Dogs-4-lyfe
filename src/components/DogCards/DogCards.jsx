@@ -1,11 +1,20 @@
 import { useState } from "react";
 import DogInfoModal from "../Modal/DogInfoModal";
 import { BsBasket3Fill } from "react-icons/bs";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import "./dogcards.css";
 
-const DogCards = ({ dogs, addToBasket }) => {
+const DogCards = ({
+	dogs,
+	addToBasket,
+	handleFavourites,
+	removeFromFavourites,
+	isFavourite,
+}) => {
 	const [mobileInfo, setMobileInfo] = useState(false);
 	const [breedInfo, setBreedInfo] = useState([]);
+
+	// const [isFavourite, setIsFavourite] = useState(false);
 	const [toggleModal, setToggleModal] = useState(false);
 	const [styling, setStyling] = useState(null);
 
@@ -33,7 +42,7 @@ const DogCards = ({ dogs, addToBasket }) => {
 					<div className="dog-card" key={dog.id}>
 						<h3>{dog.name}</h3>
 						<div className="image-container" onClick={() => changeInfo(dog)}>
-							<img src={dog.url} alt="doggo" onClick={() => toggleInfoMobile} />
+							<img src={dog.url} alt="doggo" onClick={toggleInfoMobile} />
 							<p className="desc">Click for more info...</p>
 						</div>
 						<p>£{dog.price}</p>
@@ -41,11 +50,12 @@ const DogCards = ({ dogs, addToBasket }) => {
 							<button onClick={() => addToBasket(dog)}>
 								<BsBasket3Fill size={20} />
 							</button>
-							<button className="info-btn" onClick={toggleInfoMobile}>
-								{mobileInfo ? "Close Info" : "More Info"}
-							</button>
-							<button className="modal-btn" onClick={() => changeInfo(dog)}>
-								More Info
+							<button onClick={() => handleFavourites(dog)}>
+								{!isFavourite ? (
+									<AiOutlineHeart size={20} />
+								) : (
+									<AiFillHeart size={20} />
+								)}
 							</button>
 						</div>
 					</div>

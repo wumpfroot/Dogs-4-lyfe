@@ -15,11 +15,11 @@
 
 .title {
 	text-align: center;
-	font-size: 78px;
+	font-size: 85px;
 	font-family: "Pacifico", cursive;
 	color: #ea9ab100;
 	-webkit-text-stroke: 1.5px black;
-	letter-spacing: 8px;
+	letter-spacing: 10px;
 }
 
 .title-4,
@@ -62,6 +62,7 @@
 	margin: 0 auto;
 	text-align: center;
 	margin-bottom: 60px;
+	font-size: 26px;
 }
 
 @media (max-width: 810px) {

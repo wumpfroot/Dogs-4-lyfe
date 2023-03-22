@@ -11,11 +11,17 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useEffect, useState } from "react";
 import "./App.css";
+import Favourites from "./components/Favourites/Favourites";
 
 const App = () => {
 	const [dog, setDog] = useState([]);
+	const [isFavourite, setIsFavourite] = useState(false);
+
 	const [basket, setBasket] = useState([]);
 	const [basketmodal, setBasketModal] = useState(false);
+	const [favourites, setFavourites] = useState(
+		() => JSON.parse(localStorage.getItem("favourites")) || []
+	);
 
 	//Fetching data from the dog API
 	const fetchImageData = async () => {
@@ -49,6 +55,10 @@ const App = () => {
 		fetchData();
 	}, []);
 
+	useEffect(() => {
+		localStorage.setItem("favourites", JSON.stringify(favourites));
+	}, [favourites]);
+
 	const addToBasket = (dog) => {
 		setBasket([...basket, dog]);
 		toast.success(`Added ${dog.name} to the basket!`);
@@ -73,15 +83,39 @@ const App = () => {
 		setBasketModal(false);
 	};
 
+	const handleFavourites = (dog) => {
+		setFavourites([...favourites, dog]);
+		localStorage.setItem("favourites", JSON.stringify(favourites));
+		setIsFavourite((prevBool) => !prevBool);
+		console.log(favourites, isFavourite);
+	};
+
+	const removeFromFavourites = (removeFavourite) => {
+		const newFavourites = [...favourites].filter(
+			(favourite) => favourite !== removeFavourite
+		);
+		setFavourites(newFavourites);
+	};
+
 	return (
 		<div className="App">
 			<Header basketModalVisible={basketModalVisible} />
 			<div className="container">
-				<DogCards dogs={dog} addToBasket={addToBasket} />
+				<DogCards
+					dogs={dog}
+					addToBasket={addToBasket}
+					handleFavourites={handleFavourites}
+					removeFromFavourites={removeFromFavourites}
+					isFavourite={isFavourite}
+				/>
 				<Basket
 					basket={basket}
 					removeFromBasket={removeFromBasket}
 					removeAllFromBasket={removeAllFromBasket}
+				/>
+				<Favourites
+					favourites={favourites}
+					removeFromFavourites={removeFromFavourites}
 				/>
 				{basketmodal && (
 					<BasketModal

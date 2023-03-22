@@ -30,6 +30,10 @@
 	margin-top: auto;
 }
 
+.basket-footer h4 {
+	font-size: 20px;
+}
+
 .basket-buyBtn {
 	display: flex;
 	align-self: flex-end;

@@ -15,7 +15,7 @@ const Basket = ({ basket, removeFromBasket, removeAllFromBasket }) => {
 		<div className="basket-container">
 			<div className="basket-header">
 				<h3 className="basket-heading">
-					<FaDog size={20} /> ({basket.length})
+					<FaDog size={24} /> ({basket.length})
 				</h3>
 				<button onClick={removeAllFromBasket} className="basket-removeAll">
 					Remove All

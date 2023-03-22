@@ -3,7 +3,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	width: 60%;
-	background-color: #fff;
+	/* background-color: #cd89d9; */
 	box-shadow: 10px 20px 30px #1265a133;
 	border-radius: 10px;
 }
@@ -11,6 +11,10 @@
 .dog-card {
 	position: relative;
 	padding: 10px;
+}
+
+.dog-card h3 {
+	font-size: 25px;
 }
 
 .image-container {
@@ -22,10 +26,11 @@
 
 .desc {
 	position: absolute;
-	top: 5px;
+	bottom: 5px;
 	left: 5px;
-	color: black;
+	color: white;
 	transition: 0.3s;
+	background-color: black;
 }
 
 .dog-card img {
@@ -115,7 +120,7 @@
 }
 
 .infomodal img {
-	width: 200px;
-	height: 100px;
+	width: 300px;
+	height: 200px;
 	border-radius: 4px;
 }

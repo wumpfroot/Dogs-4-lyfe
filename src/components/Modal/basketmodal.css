@@ -14,5 +14,21 @@
 .modal {
 	background: white;
 	border-radius: 4px;
-	padding: 10px;
+	padding: 30px;
 }
+
+.basket__empty {
+	margin-block: 100px;
+}
+
+.mobile__basket__container {
+	min-height: 200px;
+	margin-block: 20px;
+}
+
+/* .basket-dog-card {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin-block: 10px;
+} */

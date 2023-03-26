@@ -19,6 +19,7 @@ const App = () => {
 
 	const [basket, setBasket] = useState([]);
 	const [basketmodal, setBasketModal] = useState(false);
+	const [showFavourites, setShowFavourites] = useState(false);
 	const [favourites, setFavourites] = useState(
 		() => JSON.parse(localStorage.getItem("favourites")) || []
 	);
@@ -88,6 +89,7 @@ const App = () => {
 		localStorage.setItem("favourites", JSON.stringify(favourites));
 		setIsFavourite((prevBool) => !prevBool);
 		console.log(favourites, isFavourite);
+		toast.success(`Added ${dog.name} to favourites 💖`);
 	};
 
 	const removeFromFavourites = (removeFavourite) => {
@@ -101,18 +103,20 @@ const App = () => {
 		<div className="App">
 			<Header basketModalVisible={basketModalVisible} />
 			<div className="container">
-				<DogCards
-					dogs={dog}
-					addToBasket={addToBasket}
-					handleFavourites={handleFavourites}
-					removeFromFavourites={removeFromFavourites}
-					isFavourite={isFavourite}
-				/>
-				<Basket
-					basket={basket}
-					removeFromBasket={removeFromBasket}
-					removeAllFromBasket={removeAllFromBasket}
-				/>
+				<div className="shop">
+					<DogCards
+						dogs={dog}
+						addToBasket={addToBasket}
+						handleFavourites={handleFavourites}
+						removeFromFavourites={removeFromFavourites}
+						isFavourite={isFavourite}
+					/>
+					<Basket
+						basket={basket}
+						removeFromBasket={removeFromBasket}
+						removeAllFromBasket={removeAllFromBasket}
+					/>
+				</div>
 				<Favourites
 					favourites={favourites}
 					removeFromFavourites={removeFromFavourites}
@@ -126,7 +130,7 @@ const App = () => {
 					/>
 				)}
 			</div>
-			<ToastContainer position="top-right" autoClose={4000} />
+			<ToastContainer position="bottom-right" autoClose={4000} />
 		</div>
 	);
 };

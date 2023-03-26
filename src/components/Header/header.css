@@ -6,6 +6,18 @@
 	margin: 0 0 0 auto;
 }
 
+.favourites-link {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	text-decoration: none;
+	background-color: #000000;
+	color: white;
+	padding: 5px;
+	border-radius: 4px;
+	z-index: 10;
+}
+
 .title-container {
 	position: relative;
 	display: flex;

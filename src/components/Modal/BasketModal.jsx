@@ -33,15 +33,23 @@ const BasketModal = ({
 								</button>
 								<button onClick={basketModalInvisible}>❌</button>
 							</div>
-							{basket.map((dog) => {
-								return (
-									<div className="basket-dog-card" key={dog.id}>
-										<h3>{dog.name}</h3>
-										<p>£{dog.price}</p>
-										<button onClick={() => removeFromBasket(dog)}>❌</button>
-									</div>
-								);
-							})}
+							{basket.length === 0 ? (
+								<h3 className="basket__empty">Basket is empty...</h3>
+							) : (
+								<div className="mobile__basket__container">
+									{basket.map((dog) => {
+										return (
+											<div className="basket-dog-card" key={dog.id}>
+												<h3>{dog.name}</h3>
+												<p>£{dog.price}</p>
+												<button onClick={() => removeFromBasket(dog)}>
+													❌
+												</button>
+											</div>
+										);
+									})}
+								</div>
+							)}
 							<div className="basket-footer">
 								<h4>Total: £{total}</h4>
 								<button

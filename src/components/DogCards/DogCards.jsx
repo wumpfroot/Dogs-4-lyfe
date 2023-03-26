@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DogInfoModal from "../Modal/DogInfoModal";
 import { BsBasket3Fill } from "react-icons/bs";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 import "./dogcards.css";
 
 const DogCards = ({
@@ -9,7 +9,6 @@ const DogCards = ({
 	addToBasket,
 	handleFavourites,
 	removeFromFavourites,
-	isFavourite,
 }) => {
 	const [mobileInfo, setMobileInfo] = useState(false);
 	const [breedInfo, setBreedInfo] = useState([]);
@@ -51,11 +50,7 @@ const DogCards = ({
 								<BsBasket3Fill size={20} />
 							</button>
 							<button onClick={() => handleFavourites(dog)}>
-								{!isFavourite ? (
-									<AiOutlineHeart size={20} />
-								) : (
-									<AiFillHeart size={20} />
-								)}
+								<AiFillHeart size={20} />
 							</button>
 						</div>
 					</div>

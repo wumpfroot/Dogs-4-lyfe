@@ -9,6 +9,10 @@
 	box-sizing: border-box;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	background: linear-gradient(45deg, #eaf2d6 0%, rgba(225, 5, 34, 0) 70%) repeat
 			scroll 0% 0%,
@@ -44,9 +48,7 @@ button:hover {
 }
 
 .container {
-	display: flex;
 	opacity: 1;
-	justify-content: space-around;
 	animation: page-opacity-load 3s normal;
 	transition: cubic-bezier(1, -1.11, 1, 0.85);
 }
@@ -61,6 +63,11 @@ button:hover {
 	100% {
 		opacity: 1;
 	}
+}
+
+.shop {
+	display: flex;
+	justify-content: space-around;
 }
 
 .box {

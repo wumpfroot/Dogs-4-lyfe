@@ -1,10 +1,14 @@
 import { BsBasket3Fill } from "react-icons/bs";
+import { AiOutlineHeart } from "react-icons/ai";
 import "./header.css";
 
 const Header = ({ basketModalVisible }) => {
 	return (
 		<>
 			<div className="title-container">
+				<a href="#favourites__title" className="favourites-link">
+					Favourites <AiOutlineHeart size={20} />
+				</a>
 				<button className="basket-modal-btn" onClick={basketModalVisible}>
 					<BsBasket3Fill size={25} />
 				</button>

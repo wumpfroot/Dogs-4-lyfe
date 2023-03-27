@@ -46,10 +46,13 @@ const DogCards = ({
 						</div>
 						<p>£{dog.price}</p>
 						<div className="card-buttons">
-							<button onClick={() => addToBasket(dog)}>
+							<button title="Add to basket" onClick={() => addToBasket(dog)}>
 								<BsBasket3Fill size={20} />
 							</button>
-							<button onClick={() => handleFavourites(dog)}>
+							<button
+								title="Add to favourites"
+								onClick={() => handleFavourites(dog)}
+							>
 								<AiFillHeart size={20} />
 							</button>
 						</div>

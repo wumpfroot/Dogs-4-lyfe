@@ -28,7 +28,7 @@ const App = () => {
 	const fetchImageData = async () => {
 		try {
 			const response = await fetch(
-				`https://api.thedogapi.com/v1/images/search?limit=10&has_breeds=1&api_key=${
+				`https://api.thedogapi.com/v1/images/search?limit=12&has_breeds=1&api_key=${
 					import.meta.env.VITE_API_KEY
 				}`
 			);

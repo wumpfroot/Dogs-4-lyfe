@@ -8,14 +8,17 @@ const DogInfoModal = ({ breedInfo, changeInfo }) => {
 				<div className="infomodal-container" onClick={changeInfo}>
 					<div className="infomodal" onClick={(e) => e.stopPropagation()}>
 						<div className="infomodal-header">
-							<button onClick={changeInfo}>❌</button>
+							<button className="infomodal-btn" onClick={changeInfo}>
+								❌
+							</button>
 						</div>
 						<div className="infomodal-content">
 							{breedInfo.map((breed) => {
 								return (
 									<div key={breed.id}>
-										<img src={breed.url} alt="" />
-										<p>{breed.breeds[0].name}</p>
+										<h2>{breed.name}</h2>
+										<img src={breed.url} alt={breed.name} />
+										<p className="info-breed">{breed.breeds[0].name}</p>
 										<p className="info-desc">
 											Height: {breed.breeds[0].height.metric}cm
 										</p>

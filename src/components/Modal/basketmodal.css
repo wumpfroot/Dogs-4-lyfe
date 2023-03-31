@@ -32,3 +32,19 @@
 	gap: 4px;
 	margin-block: 10px;
 } */
+
+/* infomodal */
+
+.infomodal-header {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.info-breed {
+	font-size: 1.2rem;
+}
+
+.info-desc {
+	font-size: 1.1rem;
+}

@@ -19,7 +19,6 @@ const App = () => {
 
 	const [basket, setBasket] = useState([]);
 	const [basketmodal, setBasketModal] = useState(false);
-	const [showFavourites, setShowFavourites] = useState(false);
 	const [favourites, setFavourites] = useState(
 		() => JSON.parse(localStorage.getItem("favourites")) || []
 	);

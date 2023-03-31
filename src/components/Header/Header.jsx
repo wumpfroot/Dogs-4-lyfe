@@ -7,10 +7,10 @@ const Header = ({ basketModalVisible }) => {
 		<>
 			<div className="title-container">
 				<a href="#favourites__title" className="favourites-link">
-					Favourites <AiOutlineHeart size={18} />
+					Favourites <AiOutlineHeart size={25} />
 				</a>
 				<button className="basket-modal-btn" onClick={basketModalVisible}>
-					<BsBasket3Fill size={25} />
+					<BsBasket3Fill size={30} color="black" />
 				</button>
 				<span className="title">Dogs</span>
 				<span className="title-4 title">4</span>

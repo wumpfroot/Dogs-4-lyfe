@@ -20,7 +20,7 @@ const Favourites = ({ favourites, removeFromFavourites }) => {
 								<img
 									src={favourite.url}
 									className="favourites__img"
-									alt="doggo"
+									alt={favourite.name}
 								/>
 							</div>
 						);
